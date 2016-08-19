@@ -3304,6 +3304,16 @@
             <field type="float" name="size_x">Size in radians of target along x-axis</field>
             <field type="float" name="size_y">Size in radians of target along y-axis</field>
         </message>
+        <message id="145" name="GPS_RTK_BASE_STATUS">
+            <description>Information such as position and accuracy of an RTK base station</description>
+            <field type="int32_t" name="lat">Latitude (WGS84) of RTK base station, in degrees * 1E7</field>
+            <field type="int32_t" name="lon">Longitude (WGS84) of RTK base station, in degrees * 1E7</field>
+            <field type="int32_t" name="alt">Altitude (AMSL, NOT WGS84), in meters * 1000 (positive for up). Note that virtually all GPS modules provide the AMSL altitude in addition to the WGS84 altitude.</field>
+            <field type="uint64_t" name="surveyin_dur">Duration of survey-in process, in seconds</field>
+            <field type="uint64_t" name="surveyin_acc">Accuracy of survey-in process, in mm</field>
+            <field type="uint8_t" name="flags">Survey-in flags, bit 0: valid, bit 1: active</field>
+            <field type="uint8_t" name="cnt">Nr of satellites used by base station</field>
+        </message>
         <!-- MESSAGE IDs 180 - 229: Space for custom messages in individual projectname_messages.xml files -->
         <message id="230" name="ESTIMATOR_STATUS">
             <description>Estimator status message including flags, innovation test ratios and estimated accuracies. The flags message is an integer bitmask containing information on which EKF outputs are valid. See the ESTIMATOR_STATUS_FLAGS enum definition for further information. The innovaton test ratios show the magnitude of the sensor innovation divided by the innovation check threshold. Under normal operation the innovaton test ratios should be below 0.5 with occasional values up to 1.0. Values greater than 1.0 should be rare under normal operation and indicate that a measurement has been rejected by the filter. The user should be notified if an innovation test ratio greater than 1.0 is recorded. Notifications for values in the range between 0.5 and 1.0 should be optional and controllable by the user.</description>
